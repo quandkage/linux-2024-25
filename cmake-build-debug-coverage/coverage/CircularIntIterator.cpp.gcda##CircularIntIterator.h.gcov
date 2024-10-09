@@ -1,0 +1,59 @@
+        -:    0:Source:/home/robert/Desktop/lnx-RAU/Utils/Iterator/CircularIntIterator.h
+        -:    0:Graph:/home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.gcno
+        -:    0:Data:/home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include <iterator>
+        -:    3:
+        -:    4:class CircularIntIterator {
+        -:    5:
+        -:    6:public:
+        -:    7:    using iterator_category = std::forward_iterator_tag;
+        -:    8:    using difference_type = std::ptrdiff_t;
+        -:    9:    using value_type = int;
+        -:   10:    using pointer = int*;
+        -:   11:    using reference = int&;
+        -:   12:
+function _ZN19CircularIntIteratorC2EPim called 1 returned 100% blocks executed 100%
+        1:   13:    explicit CircularIntIterator(pointer ptr, size_t size) : m_ptr(ptr), m_begin(ptr), m_size(size) {
+        -:   14:
+        1:   15:    }
+        -:   16:
+function _ZNK19CircularIntIteratordeEv called 7 returned 100% blocks executed 100%
+        7:   17:    reference operator*() const {
+        7:   18:        return *m_ptr;
+        7:   18-block  0
+        -:   19:    }
+        -:   20:    pointer operator->() const {
+        -:   21:        return m_ptr;
+        -:   22:    }
+function _ZN19CircularIntIteratorppEv called 7 returned 100% blocks executed 100%
+        7:   23:    CircularIntIterator& operator++() {
+        7:   24:        ++m_ptr;
+        7:   25:        if(m_ptr == m_begin + m_size) {
+        7:   25-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 5
+        2:   26:            m_ptr = m_begin;
+        2:   26-block  0
+        -:   27:        }
+        7:   28:        return *this;
+        7:   28-block  0
+        -:   29:    }
+        -:   30:    CircularIntIterator operator++(int) {
+        -:   31:        CircularIntIterator tmp = *this;
+        -:   32:        ++(*this);
+        -:   33:        return tmp;
+        -:   34:    }
+        -:   35:    friend bool operator==(const CircularIntIterator& lhs, const CircularIntIterator& rhs) {
+        -:   36:        return lhs.m_ptr == rhs.m_ptr;
+        -:   37:    }
+        -:   38:    friend bool operator!=(const CircularIntIterator& lhs, const CircularIntIterator& rhs) {
+        -:   39:        return lhs.m_ptr != rhs.m_ptr;
+        -:   40:    }
+        -:   41:
+        -:   42:private:
+        -:   43:    pointer m_ptr;
+        -:   44:    pointer m_begin;
+        -:   45:    size_t m_size;
+        -:   46:};
