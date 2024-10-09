@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/HomeWork1.dir/MyUzbek.cpp.o -o HomeWork1
