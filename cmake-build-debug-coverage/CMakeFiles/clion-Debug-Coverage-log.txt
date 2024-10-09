@@ -2,3 +2,6 @@
 -- Configuring done (0.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage
+
+Problems were encountered while collecting compiler information:
+	c++: error: unrecognized command-line option '-fsanitize-address-use-after-return=runtime'; did you mean '-fsanitize-address-use-after-scope'?

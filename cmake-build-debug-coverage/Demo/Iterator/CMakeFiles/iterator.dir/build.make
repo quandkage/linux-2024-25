@@ -69,28 +69,28 @@ include Demo/Iterator/CMakeFiles/iterator.dir/progress.make
 # Include the compile flags for this target's objects.
 include Demo/Iterator/CMakeFiles/iterator.dir/flags.make
 
-Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o: Demo/Iterator/CMakeFiles/iterator.dir/flags.make
-Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o: /home/robert/Desktop/lnx-RAU/Demo/Iterator/FilterIntegerIterator.cpp
-Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o: Demo/Iterator/CMakeFiles/iterator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o"
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o -MF CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o.d -o CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o -c /home/robert/Desktop/lnx-RAU/Demo/Iterator/FilterIntegerIterator.cpp
+Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.o: Demo/Iterator/CMakeFiles/iterator.dir/flags.make
+Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.o: /home/robert/Desktop/lnx-RAU/Demo/Iterator/CircularIntIterator.cpp
+Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.o: Demo/Iterator/CMakeFiles/iterator.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.o"
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.o -MF CMakeFiles/iterator.dir/CircularIntIterator.cpp.o.d -o CMakeFiles/iterator.dir/CircularIntIterator.cpp.o -c /home/robert/Desktop/lnx-RAU/Demo/Iterator/CircularIntIterator.cpp
 
-Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.i"
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robert/Desktop/lnx-RAU/Demo/Iterator/FilterIntegerIterator.cpp > CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.i
+Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/iterator.dir/CircularIntIterator.cpp.i"
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robert/Desktop/lnx-RAU/Demo/Iterator/CircularIntIterator.cpp > CMakeFiles/iterator.dir/CircularIntIterator.cpp.i
 
-Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.s"
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robert/Desktop/lnx-RAU/Demo/Iterator/FilterIntegerIterator.cpp -o CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.s
+Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/iterator.dir/CircularIntIterator.cpp.s"
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/Demo/Iterator && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robert/Desktop/lnx-RAU/Demo/Iterator/CircularIntIterator.cpp -o CMakeFiles/iterator.dir/CircularIntIterator.cpp.s
 
 # Object files for target iterator
 iterator_OBJECTS = \
-"CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o"
+"CMakeFiles/iterator.dir/CircularIntIterator.cpp.o"
 
 # External object files for target iterator
 iterator_EXTERNAL_OBJECTS =
 
-Demo/Iterator/iterator: Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o
+Demo/Iterator/iterator: Demo/Iterator/CMakeFiles/iterator.dir/CircularIntIterator.cpp.o
 Demo/Iterator/iterator: Demo/Iterator/CMakeFiles/iterator.dir/build.make
 Demo/Iterator/iterator: Demo/Iterator/CMakeFiles/iterator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable iterator"

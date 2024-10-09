@@ -46,5 +46,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "Demo/Iterator/CMakeFiles/iterator.dir/DependInfo.cmake"
+  "Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/DependInfo.cmake"
+  "Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/DependInfo.cmake"
+  "Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/DependInfo.cmake"
   )

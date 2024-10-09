@@ -78,7 +78,9 @@ clean: Demo/Iterator/clean
 # Directory level rules for directory Demo/Iterator
 
 # Recursive "all" directory target.
-Demo/Iterator/all: Demo/Iterator/CMakeFiles/iterator.dir/all
+Demo/Iterator/all: Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/all
+Demo/Iterator/all: Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/all
+Demo/Iterator/all: Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/all
 .PHONY : Demo/Iterator/all
 
 # Recursive "preinstall" directory target.
@@ -86,34 +88,88 @@ Demo/Iterator/preinstall:
 .PHONY : Demo/Iterator/preinstall
 
 # Recursive "clean" directory target.
-Demo/Iterator/clean: Demo/Iterator/CMakeFiles/iterator.dir/clean
+Demo/Iterator/clean: Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/clean
+Demo/Iterator/clean: Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/clean
+Demo/Iterator/clean: Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/clean
 .PHONY : Demo/Iterator/clean
 
 #=============================================================================
-# Target rules for target Demo/Iterator/CMakeFiles/iterator.dir
+# Target rules for target Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir
 
 # All Build rule for target.
-Demo/Iterator/CMakeFiles/iterator.dir/all:
-	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/depend
-	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target iterator"
-.PHONY : Demo/Iterator/CMakeFiles/iterator.dir/all
+Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/all:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/depend
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target CircularIntIteratorDemo"
+.PHONY : Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/all
 
 # Build rule for subdir invocation for target.
-Demo/Iterator/CMakeFiles/iterator.dir/rule: cmake_check_build_system
+Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/iterator.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles 0
-.PHONY : Demo/Iterator/CMakeFiles/iterator.dir/rule
+.PHONY : Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule
 
 # Convenience name for target.
-iterator: Demo/Iterator/CMakeFiles/iterator.dir/rule
-.PHONY : iterator
+CircularIntIteratorDemo: Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule
+.PHONY : CircularIntIteratorDemo
 
 # clean rule for target.
-Demo/Iterator/CMakeFiles/iterator.dir/clean:
-	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/clean
-.PHONY : Demo/Iterator/CMakeFiles/iterator.dir/clean
+Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/clean
+.PHONY : Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/clean
+
+#=============================================================================
+# Target rules for target Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir
+
+# All Build rule for target.
+Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/all:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/depend
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target FilterIntegerIteratorDemo"
+.PHONY : Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/all
+
+# Build rule for subdir invocation for target.
+Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles 0
+.PHONY : Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule
+
+# Convenience name for target.
+FilterIntegerIteratorDemo: Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule
+.PHONY : FilterIntegerIteratorDemo
+
+# clean rule for target.
+Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/clean
+.PHONY : Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/clean
+
+#=============================================================================
+# Target rules for target Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir
+
+# All Build rule for target.
+Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/all:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/depend
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target ReverseArrayIteratorDemo"
+.PHONY : Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/all
+
+# Build rule for subdir invocation for target.
+Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robert/Desktop/lnx-RAU/cmake-build-debug/CMakeFiles 0
+.PHONY : Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule
+
+# Convenience name for target.
+ReverseArrayIteratorDemo: Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule
+.PHONY : ReverseArrayIteratorDemo
+
+# clean rule for target.
+Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/clean
+.PHONY : Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

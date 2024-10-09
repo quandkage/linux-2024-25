@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o"
-  "CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o.d"
+  "CMakeFiles/iterator.dir/CircularIntIterator.cpp.o"
+  "CMakeFiles/iterator.dir/CircularIntIterator.cpp.o.d"
   "iterator"
   "iterator.pdb"
 )

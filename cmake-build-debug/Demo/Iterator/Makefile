@@ -117,25 +117,77 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Demo/Iterator/CMakeFiles/iterator.dir/rule:
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/iterator.dir/rule
-.PHONY : Demo/Iterator/CMakeFiles/iterator.dir/rule
+Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule
+.PHONY : Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule
 
 # Convenience name for target.
-iterator: Demo/Iterator/CMakeFiles/iterator.dir/rule
-.PHONY : iterator
+CircularIntIteratorDemo: Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/rule
+.PHONY : CircularIntIteratorDemo
 
 # fast build rule for target.
-iterator/fast:
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/build
-.PHONY : iterator/fast
+CircularIntIteratorDemo/fast:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build
+.PHONY : CircularIntIteratorDemo/fast
+
+# Convenience name for target.
+Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule
+.PHONY : Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule
+
+# Convenience name for target.
+FilterIntegerIteratorDemo: Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/rule
+.PHONY : FilterIntegerIteratorDemo
+
+# fast build rule for target.
+FilterIntegerIteratorDemo/fast:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build
+.PHONY : FilterIntegerIteratorDemo/fast
+
+# Convenience name for target.
+Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule
+.PHONY : Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule
+
+# Convenience name for target.
+ReverseArrayIteratorDemo: Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/rule
+.PHONY : ReverseArrayIteratorDemo
+
+# fast build rule for target.
+ReverseArrayIteratorDemo/fast:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build
+.PHONY : ReverseArrayIteratorDemo/fast
+
+CircularIntIterator.o: CircularIntIterator.cpp.o
+.PHONY : CircularIntIterator.o
+
+# target to build an object file
+CircularIntIterator.cpp.o:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/CircularIntIterator.cpp.o
+.PHONY : CircularIntIterator.cpp.o
+
+CircularIntIterator.i: CircularIntIterator.cpp.i
+.PHONY : CircularIntIterator.i
+
+# target to preprocess a source file
+CircularIntIterator.cpp.i:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/CircularIntIterator.cpp.i
+.PHONY : CircularIntIterator.cpp.i
+
+CircularIntIterator.s: CircularIntIterator.cpp.s
+.PHONY : CircularIntIterator.s
+
+# target to generate assembly for a file
+CircularIntIterator.cpp.s:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/CircularIntIterator.cpp.s
+.PHONY : CircularIntIterator.cpp.s
 
 FilterIntegerIterator.o: FilterIntegerIterator.cpp.o
 .PHONY : FilterIntegerIterator.o
 
 # target to build an object file
 FilterIntegerIterator.cpp.o:
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.o
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/FilterIntegerIterator.cpp.o
 .PHONY : FilterIntegerIterator.cpp.o
 
 FilterIntegerIterator.i: FilterIntegerIterator.cpp.i
@@ -143,7 +195,7 @@ FilterIntegerIterator.i: FilterIntegerIterator.cpp.i
 
 # target to preprocess a source file
 FilterIntegerIterator.cpp.i:
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.i
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/FilterIntegerIterator.cpp.i
 .PHONY : FilterIntegerIterator.cpp.i
 
 FilterIntegerIterator.s: FilterIntegerIterator.cpp.s
@@ -151,8 +203,32 @@ FilterIntegerIterator.s: FilterIntegerIterator.cpp.s
 
 # target to generate assembly for a file
 FilterIntegerIterator.cpp.s:
-	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/FilterIntegerIterator.cpp.s
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/FilterIntegerIterator.cpp.s
 .PHONY : FilterIntegerIterator.cpp.s
+
+ReverseArrayIterator.o: ReverseArrayIterator.cpp.o
+.PHONY : ReverseArrayIterator.o
+
+# target to build an object file
+ReverseArrayIterator.cpp.o:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/ReverseArrayIterator.cpp.o
+.PHONY : ReverseArrayIterator.cpp.o
+
+ReverseArrayIterator.i: ReverseArrayIterator.cpp.i
+.PHONY : ReverseArrayIterator.i
+
+# target to preprocess a source file
+ReverseArrayIterator.cpp.i:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/ReverseArrayIterator.cpp.i
+.PHONY : ReverseArrayIterator.cpp.i
+
+ReverseArrayIterator.s: ReverseArrayIterator.cpp.s
+.PHONY : ReverseArrayIterator.s
+
+# target to generate assembly for a file
+ReverseArrayIterator.cpp.s:
+	cd /home/robert/Desktop/lnx-RAU/cmake-build-debug && $(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/ReverseArrayIterator.cpp.s
+.PHONY : ReverseArrayIterator.cpp.s
 
 # Help Target
 help:
@@ -162,10 +238,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... iterator"
+	@echo "... CircularIntIteratorDemo"
+	@echo "... FilterIntegerIteratorDemo"
+	@echo "... ReverseArrayIteratorDemo"
+	@echo "... CircularIntIterator.o"
+	@echo "... CircularIntIterator.i"
+	@echo "... CircularIntIterator.s"
 	@echo "... FilterIntegerIterator.o"
 	@echo "... FilterIntegerIterator.i"
 	@echo "... FilterIntegerIterator.s"
+	@echo "... ReverseArrayIterator.o"
+	@echo "... ReverseArrayIterator.i"
+	@echo "... ReverseArrayIterator.s"
 .PHONY : help
 
 

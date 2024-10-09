@@ -117,17 +117,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named iterator
+# Target rules for targets named CircularIntIteratorDemo
 
 # Build rule for target.
-iterator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 iterator
-.PHONY : iterator
+CircularIntIteratorDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CircularIntIteratorDemo
+.PHONY : CircularIntIteratorDemo
 
 # fast build rule for target.
-iterator/fast:
-	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/iterator.dir/build.make Demo/Iterator/CMakeFiles/iterator.dir/build
-.PHONY : iterator/fast
+CircularIntIteratorDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/CircularIntIteratorDemo.dir/build
+.PHONY : CircularIntIteratorDemo/fast
+
+#=============================================================================
+# Target rules for targets named FilterIntegerIteratorDemo
+
+# Build rule for target.
+FilterIntegerIteratorDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FilterIntegerIteratorDemo
+.PHONY : FilterIntegerIteratorDemo
+
+# fast build rule for target.
+FilterIntegerIteratorDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/FilterIntegerIteratorDemo.dir/build
+.PHONY : FilterIntegerIteratorDemo/fast
+
+#=============================================================================
+# Target rules for targets named ReverseArrayIteratorDemo
+
+# Build rule for target.
+ReverseArrayIteratorDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ReverseArrayIteratorDemo
+.PHONY : ReverseArrayIteratorDemo
+
+# fast build rule for target.
+ReverseArrayIteratorDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build.make Demo/Iterator/CMakeFiles/ReverseArrayIteratorDemo.dir/build
+.PHONY : ReverseArrayIteratorDemo/fast
 
 # Help Target
 help:
@@ -137,7 +163,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... iterator"
+	@echo "... CircularIntIteratorDemo"
+	@echo "... FilterIntegerIteratorDemo"
+	@echo "... ReverseArrayIteratorDemo"
 .PHONY : help
 
 
