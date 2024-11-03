@@ -13,33 +13,31 @@ public:
 
     class RecursiveDirectoryIterator {
     private:
-        std::stack<DIR*> m_dirStack;
-        std::stack<std::string> m_pathStack;
+        std::stack<std::pair<DIR*, std::string>> m_dirStack;
         dirent* m_entry;
 
         void open_dir(const std::string& path) {
             DIR* dir = opendir(path.c_str());
             if (dir) {
-                m_dirStack.push(dir);
-                m_pathStack.push(path);
+                m_dirStack.emplace(dir, path);
+                // m_dirStack.push(std::make_pair(dir, path));
             }
         }
 
-        void next_dir() {
+        void next_entry() {
             while (!m_dirStack.empty()) {
-                m_entry = readdir(m_dirStack.top());
+                m_entry = readdir(m_dirStack.top().first);
                 if (m_entry) {
                     std::string dirName = m_entry->d_name;
                     if (dirName != "." && dirName != "..") {
                         if (m_entry->d_type == DT_DIR) {
-                            open_dir(m_pathStack.top() + "/" + dirName);
+                            open_dir(m_dirStack.top().second + "/" + dirName);
                         }
                         return;
                     }
                 } else {
-                    closedir(m_dirStack.top());
+                    closedir(m_dirStack.top().first);
                     m_dirStack.pop();
-                    m_pathStack.pop();
                 }
             }
             m_entry = nullptr;
@@ -48,15 +46,15 @@ public:
     public:
         explicit RecursiveDirectoryIterator(const std::string& path) : m_entry(nullptr) {
             open_dir(path);
-            next_dir();
+            next_entry();
         }
 
-        const dirent* operator*() const {
-            return m_entry;
+        std::string operator*() const {
+            return getName();
         }
 
         RecursiveDirectoryIterator& operator++() {
-            next_dir();
+            next_entry();
             return *this;
         }
         std::string getName() const {

@@ -2,9 +2,9 @@
 
 
 int main() {
-    Directory dir("/home/robert/Desktop/Uzbek");
+    Directory dir("TestPath");
     for (auto it = dir.begin(); it != dir.end(); ++it) {
-        std::cout << it.getName() << std::endl;
+        std::cout << *it << std::endl;
     }
     return 0;
 }
