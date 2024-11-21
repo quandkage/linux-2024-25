@@ -58,7 +58,7 @@ void serialize(const T& obj, const std::string& name) {
 
     SerDes<T> mmHopar(name, sizeof(T));
 
-    std::memcpy(&mmHopar, &obj, sizeof(T));
+    std::memcpy(mmHopar.getData(), &obj, sizeof(T));
 }
 template <typename T>
 void deserialize(T& obj, const std::string& name) {
@@ -66,5 +66,5 @@ void deserialize(T& obj, const std::string& name) {
 
     SerDes<T> mmHopar(name, sizeof(T));
 
-    std::memcpy(&obj, &mmHopar, sizeof(T));
+    std::memcpy(&obj, mmHopar.getData(), sizeof(T));
 }
