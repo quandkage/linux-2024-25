@@ -1,5 +1,4 @@
 #include "SerDes.hpp"
-#include <iomanip>
 
 struct Test {
     int a;
