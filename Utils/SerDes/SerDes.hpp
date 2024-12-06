@@ -1,40 +1,42 @@
 #pragma once
-#include <iostream>
 #include <unistd.h>
 #include <fcntl.h>
 #include <type_traits>
 #include <sys/mman.h>
 #include <cstring>
+#include <filesystem>
+#include <fstream>
+#include <stdexcept>
 
-
-template <class T>
-class SerDes {
+class MappedFile {
 private:
-    int fd_ = - 1;
-    void* data_ = MAP_FAILED;
+    int fd_;
+    void* data_;
     size_t size_;
+
 public:
+    MappedFile(const std::string& fileName, size_t size)
+        : fd_(-1), data_(MAP_FAILED), size_(size) {
 
-    SerDes(const std::string& fl, size_t size) {
-        fd_ = open(fl.c_str(), O_RDWR | O_CREAT, 0666);
+        fd_ = open(fileName.c_str(), O_RDWR | O_CREAT, 0666);
         if (fd_ == -1) {
-            throw std::runtime_error("file el ches karum baces...");
-        }
-        if (ftruncate(fd_, size) == -1) {
-            std::cerr << "Hopar jan chenq karecel file-d resize anenq" << std::endl;
-            close(fd_);
-            throw std::runtime_error("Nerox Mecutyun");
+            throw std::runtime_error("Failed to open or create file: " + fileName);
         }
 
-        data_ = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd_, 0);
-        if (data_ == MAP_FAILED) {
-            std::cerr << "Hopar jan chgitem xi chkarecanq mapping anenq, de kneres patahuma" << std::endl;
+        if (ftruncate(fd_, size_) == -1) {
             close(fd_);
-            throw std::runtime_error("Myus Kyanqum kstacvi");
+            throw std::runtime_error("Failed to resize file to size: " + std::to_string(size_));
+        }
+
+        // Memory map the file
+        data_ = mmap(nullptr, size_, PROT_READ | PROT_WRITE, MAP_SHARED, fd_, 0);
+        if (data_ == MAP_FAILED) {
+            close(fd_);
+            throw std::runtime_error("Memory mapping failed for file: " + fileName);
         }
     }
 
-    ~SerDes() {
+    ~MappedFile() {
         if (data_ != MAP_FAILED) {
             munmap(data_, size_);
         }
@@ -53,18 +55,30 @@ public:
 };
 
 template <typename T>
-void serialize(const T& obj, const std::string& name) {
-    static_assert(std::is_trivially_copyable_v<T>, "Axper asecinq Trivially Copyable (maqur hayerenov)");
+void serialize(const T& obj, const std::string& fileName) {
+    static_assert(std::is_trivially_copyable_v<T>, "T must be trivially copyable");
 
-    SerDes<T> mmHopar(name, sizeof(T));
+    MappedFile mappedFile(fileName, sizeof(T));
 
-    std::memcpy(mmHopar.getData(), &obj, sizeof(T));
+    // Copy the data to the mapped memory
+    std::memcpy(mappedFile.getData(), &obj, sizeof(T));
 }
+
 template <typename T>
-void deserialize(T& obj, const std::string& name) {
-    static_assert(std::is_trivially_copyable_v<T>, "Chem jogum xi es noncopyable - y deserialize anum kam aveli hzor harc xi ?");
+void deserialize(T& obj, const std::string& fileName) {
+    static_assert(std::is_trivially_copyable_v<T>, "T must be trivially copyable");
 
-    SerDes<T> mmHopar(name, sizeof(T));
+    MappedFile mappedFile(fileName, sizeof(T));
 
-    std::memcpy(&obj, mmHopar.getData(), sizeof(T));
+    std::memcpy(&obj, mappedFile.getData(), sizeof(T));
 }
+
+void createFiles() {
+    std::filesystem::create_directory("data");
+
+    std::ofstream outText("hopar.txt", std::ios::app);
+    if (!outText) {
+        throw std::runtime_error("Error creating or opening 'hopar.txt' for writing");
+    }
+}
+
