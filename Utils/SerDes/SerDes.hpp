@@ -9,47 +9,33 @@
 #include <stdexcept>
 
 class MappedFile {
-private:
-    int fd_;
-    void* data_;
-    size_t size_;
-
 public:
-    MappedFile(const std::string& fileName, size_t size)
-        : fd_(-1), data_(MAP_FAILED), size_(size) {
-
-        fd_ = open(fileName.c_str(), O_RDWR | O_CREAT, 0666);
-        if (fd_ == -1) {
+    static void* map(const std::string& fileName, size_t size) {
+        int fd = open(fileName.c_str(), O_RDWR | O_CREAT, 0666);
+        if (fd == -1) {
             throw std::runtime_error("Failed to open or create file: " + fileName);
         }
 
-        if (ftruncate(fd_, size_) == -1) {
-            close(fd_);
-            throw std::runtime_error("Failed to resize file to size: " + std::to_string(size_));
+        if (ftruncate(fd, size) == -1) {
+            close(fd);
+            throw std::runtime_error("Failed to resize file to size: " + std::to_string(size));
         }
 
-        data_ = mmap(nullptr, size_, PROT_READ | PROT_WRITE, MAP_SHARED, fd_, 0);
-        if (data_ == MAP_FAILED) {
-            close(fd_);
+        void* data = mmap(nullptr, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+        if (data == MAP_FAILED) {
+            close(fd);
             throw std::runtime_error("Memory mapping failed for file: " + fileName);
         }
+
+        close(fd);
+
+        return data;
     }
 
-    ~MappedFile() {
-        if (data_ != MAP_FAILED) {
-            munmap(data_, size_);
+    static void unmap(void* data, size_t size) {
+        if (data != MAP_FAILED) {
+            munmap(data, size);
         }
-        if (fd_ != -1) {
-            close(fd_);
-        }
-    }
-
-    void* getData() {
-        return data_;
-    }
-
-    int getFd() const {
-        return fd_;
     }
 };
 
@@ -57,18 +43,22 @@ template <typename T>
 void serialize(const T& obj, const std::string& fileName) {
     static_assert(std::is_trivially_copyable_v<T>, "T must be trivially copyable");
 
-    MappedFile mappedFile(fileName, sizeof(T));
+    void* data = MappedFile::map(fileName, sizeof(T));
 
-    std::memcpy(mappedFile.getData(), &obj, sizeof(T));
+    std::memcpy(data, &obj, sizeof(T));
+
+    MappedFile::unmap(data, sizeof(T));
 }
 
 template <typename T>
 void deserialize(T& obj, const std::string& fileName) {
     static_assert(std::is_trivially_copyable_v<T>, "T must be trivially copyable");
 
-    MappedFile mappedFile(fileName, sizeof(T));
+    void* data = MappedFile::map(fileName, sizeof(T));
 
-    std::memcpy(&obj, mappedFile.getData(), sizeof(T));
+    std::memcpy(&obj, data, sizeof(T));
+
+    MappedFile::unmap(data, sizeof(T));
 }
 
 void createFiles() {
@@ -79,4 +69,3 @@ void createFiles() {
         throw std::runtime_error("Error creating or opening 'hopar.txt' for writing");
     }
 }
-

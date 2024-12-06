@@ -1,6 +1,6 @@
 #include "SerDes.hpp"
 #include <cassert>
-
+#include <iostream>
 struct Test {
     int a;
     double b;
