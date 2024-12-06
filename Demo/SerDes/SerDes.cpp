@@ -1,8 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <cassert>
-#include <cstring>
 #include "SerDes.hpp"
+#include <cassert>
 
 struct Test {
     int a;
@@ -22,6 +19,7 @@ void test_basic_serialization() {
 }
 
 void test_boundary_values() {
+
     Test t1 = {0, 0.0};
     serialize(t1, "data/test_zero.bin");
     Test t2;
@@ -34,6 +32,7 @@ void test_boundary_values() {
     deserialize(t2, "data/test_negative.bin");
     assert(t2.a == -1);
     assert(std::abs(t2.b - -2.718) < 1e-5);
+
 
     t1 = {std::numeric_limits<int>::max(), std::numeric_limits<double>::max()};
     serialize(t1, "data/test_max.bin");

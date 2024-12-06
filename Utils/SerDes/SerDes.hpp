@@ -28,7 +28,6 @@ public:
             throw std::runtime_error("Failed to resize file to size: " + std::to_string(size_));
         }
 
-        // Memory map the file
         data_ = mmap(nullptr, size_, PROT_READ | PROT_WRITE, MAP_SHARED, fd_, 0);
         if (data_ == MAP_FAILED) {
             close(fd_);
@@ -60,7 +59,6 @@ void serialize(const T& obj, const std::string& fileName) {
 
     MappedFile mappedFile(fileName, sizeof(T));
 
-    // Copy the data to the mapped memory
     std::memcpy(mappedFile.getData(), &obj, sizeof(T));
 }
 
