@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DoCommand.hpp"
+#include "DoCommand/DoCommand.hpp"
 
 int main() {
     const char* command = "ls -l";

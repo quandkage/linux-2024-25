@@ -10,7 +10,9 @@ int do_command(const char * command) {
         return -1;
     }
     if (proc == 0) {
-        char* const args[] = {"/bin/sh", "-c", (char*)command, NULL};
+        char shell[] = "/bin/sh";
+        char flag[] = "-c";
+        char* args[] = {shell, flag, (char*)command, nullptr};
         execvp(args[0], args);
 
         perror("execvp");

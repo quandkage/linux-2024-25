@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(Demo/Iterator)
 add_subdirectory(Demo/DoCommand)
+add_subdirectory(Demo/XARGS)
