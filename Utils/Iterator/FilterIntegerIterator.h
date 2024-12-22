@@ -12,7 +12,6 @@ public:
 
     explicit FilterIntegerIterator(pointer p, const size_t size, FooPointer predicate)
     : m_ptr(p), m_size(size), m_foo_pointer(predicate)
-
     {
         while (m_size > 0 && !m_foo_pointer(*m_ptr)) {
             --m_size;
