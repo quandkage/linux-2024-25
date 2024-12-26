@@ -1,4 +1,6 @@
-#pragma once
+#ifndef REVERSEARRAYINTERATOR_H
+#define REVERSEARRAYINTERATOR_H
+
 #include <iterator>
 
 class ReverseArrayIterator {
@@ -9,45 +11,28 @@ public:
     using pointer = int*;
     using reference = int&;
 
-    ReverseArrayIterator(pointer ptr, size_t size)
-        : m_ptr(ptr), m_size(size), m_index(size) {}
+    ReverseArrayIterator(pointer ptr, size_t size);
 
-    reference operator*() {
-        return m_ptr[m_index - 1];
-    }
-    pointer operator->() {
-        return &m_ptr[m_index - 1];
-    }
+    reference operator*() const;
 
-    ReverseArrayIterator& operator++() {
-        --m_index;
-        return *this;
-    }
+    pointer operator->() const;
 
-    ReverseArrayIterator operator++(int) {
-        ReverseArrayIterator temp = *this;
-        --m_index;
-        return temp;
-    }
+    ReverseArrayIterator& operator++();
 
-    bool operator!=(const ReverseArrayIterator& other) const {
-        return m_index != other.m_index;
-    }
+    ReverseArrayIterator operator++(int);
 
-    bool operator==(const ReverseArrayIterator& other) const {
-        return m_index == other.m_index;
-    }
+    bool operator!=(const ReverseArrayIterator& other) const;
 
-    ReverseArrayIterator begin() {
-        return ReverseArrayIterator(m_ptr, m_size);
-    }
+    bool operator==(const ReverseArrayIterator& other) const;
 
-    ReverseArrayIterator end() {
-        return ReverseArrayIterator(m_ptr, 0);
-    }
+    ReverseArrayIterator begin();
+
+    ReverseArrayIterator end();
 
 private:
     pointer m_ptr;
     size_t m_size;
     size_t m_index;
 };
+
+#endif
