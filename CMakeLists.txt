@@ -7,5 +7,5 @@ set(CMAKE_CXX_STANDARD 20)
 add_subdirectory(Demo/Iterator)
 add_subdirectory(Demo/Allocator)
 add_subdirectory(Demo/WatchDogs)
-dd_subdirectory(Demo/SerDes)
+add_subdirectory(Demo/SerDes)
 
