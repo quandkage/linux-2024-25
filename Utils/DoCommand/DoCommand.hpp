@@ -6,15 +6,16 @@ int do_command(const char * command) {
     pid_t proc = fork();
 
     if (proc == -1) {
-        perror("fork");
         return -1;
     }
     if (proc == 0) {
         char shell[] = "/bin/sh";
         char flag[] = "-c";
         char* args[] = {shell, flag, (char*)command, nullptr};
-        execvp(args[0], args);
 
+        if (execvp(args[0], args) == -1) {
+            return -1;
+        }
         perror("execvp");
         return -1;
     } else {
