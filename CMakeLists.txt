@@ -11,4 +11,5 @@ add_subdirectory(Demo/XARGS)
 add_subdirectory(Demo/Allocator)
 add_subdirectory(Demo/WatchDogs)
 add_subdirectory(Demo/SerDes)
+add_subdirectory(Demo/Thread/blocking_queue)
 
