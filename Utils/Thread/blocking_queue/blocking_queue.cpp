@@ -28,15 +28,26 @@ T Blocking_Queue<T>::dequeue() {
     return poped;
 }
 
+template <typename T>
+bool Blocking_Queue<T>::try_enqueue(const T& obj) {
+    std::lock_guard<std::mutex> lock(mtx);
+    if (buff.size() >= m_maxSize) {
+        return false;
+    }
+    buff.push(obj);
+    cv.notify_one();
+    return true;
+}
+
 void consumer(Blocking_Queue<int>& kuyeuye) {
     for (int i = 0; i < 15; ++i) {
-        kuyeuye.enqueue(i);
+        kuyeuye.dequeue();
     }
 }
 
 void producer(Blocking_Queue<int> &kuyeuye) {
     for (int i = 0; i < 15; ++i) {
-        kuyeuye.dequeue();
+        kuyeuye.enqueue(i);
     }
 }
 

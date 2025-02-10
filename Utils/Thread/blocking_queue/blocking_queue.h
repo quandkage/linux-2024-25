@@ -19,7 +19,11 @@ private:
 public:
     explicit Blocking_Queue(std::size_t maxSize);
 
+    Blocking_Queue(const Blocking_Queue&) = delete;
+    Blocking_Queue& operator=(const Blocking_Queue&) = delete;
+
     void enqueue(const T& obj);
+    bool try_enqueue(const T& obj);
     T dequeue();
 };
 
