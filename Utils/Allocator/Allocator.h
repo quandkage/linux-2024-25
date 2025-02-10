@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ALLOCATOR_H
+#define ALLOCATOR_H
 
 #include <iostream>
 #include <memory>
@@ -12,12 +13,7 @@ private:
     size_t m_size;
     bool ownsBuffer;
 
-    void report(T* p, size_t size, bool alloc = true) const {
-        std::cout << (alloc ? "Alloc" : "Dealloc")
-                  << " " << sizeof(T) * size << " bytes at "
-                  << std::hex << std::showbase << reinterpret_cast<void*>(p)
-                  << std::dec << std::endl;
-    }
+    void report(T* p, size_t size, bool alloc = true) const;
 
 public:
     using value_type = T;
@@ -33,52 +29,32 @@ public:
         using other = MyAllocator<U>;
     };
 
-    MyAllocator(void* buffer, size_t size) : m_buffer(buffer), m_size(size), ownsBuffer(false)  {}
+    MyAllocator(void* buffer, size_t size);
 
-    explicit MyAllocator(size_t size) : m_buffer(nullptr), m_size(size), ownsBuffer(true) {}
+    explicit MyAllocator(size_t size);
 
-    ~MyAllocator() {
-        if (ownsBuffer) {
-            ::operator delete(m_buffer);
-            std::cout << "Deallocated memory from custom allocator" << std::endl;
-        }
-    }
+    ~MyAllocator();
 
-    pointer allocate(size_type n) {
-        if (n == 0) {
-            return nullptr;
-        }
-        pointer ptr = static_cast<pointer>(::operator new(n * sizeof(T)));
-        report(ptr, n);
-        return ptr;
-    }
+    pointer allocate(size_type n);
 
-    void deallocate(pointer p, size_type n) {
-        if (p != nullptr && n > 0) {
-            report(p, n, false);
-            ::operator delete(p);
-        }
-    }
+    void deallocate(pointer p, size_type n);
 
 
-    size_type max_size() const {
-        return std::numeric_limits<std::size_t>::max();
-    }
+    size_type max_size() const;
 
     template <class U, class... Args>
-    void construct(U* p, Args&&... args) {
-        new(p) U(std::forward<Args>(args)...);
-    }
+    void construct(U* p, Args&&... args);
 
     template <class U>
-    void destroy(U* p) {
-        p->~U();
-        std::cout << "Destroyed memory from custom allocator" << std::endl;
-    }
+    void destroy(U* p);
 
     template<class U>
-    bool operator==(const MyAllocator<U>&) const { return true; }
+    bool operator==(const MyAllocator<U>&) const;
 
     template<class U>
-    bool operator!=(const MyAllocator<U>&) const { return false; }
+    bool operator!=(const MyAllocator<U>&) const;
 };
+
+#include "AllocatorDef.cpp"
+
+#endif
