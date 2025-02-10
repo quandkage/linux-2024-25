@@ -17,6 +17,16 @@ void Blocking_Queue<T>::enqueue(const T &obj) {
 }
 
 template<class T>
+Blocking_Queue<T>::~Blocking_Queue() {
+    std::lock_guard<std::mutex> lock(mtx);
+    while (!buff.empty()) {
+        buff.pop();
+    }
+    cv.notify_all();
+}
+
+
+template    <typename T>
 T Blocking_Queue<T>::dequeue() {
     std::unique_lock<std::mutex> lock(mtx);
     cv.wait(lock, [this]{

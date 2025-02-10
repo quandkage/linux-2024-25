@@ -18,6 +18,7 @@ private:
 
 public:
     explicit Blocking_Queue(std::size_t maxSize);
+    ~Blocking_Queue();
 
     Blocking_Queue(const Blocking_Queue&) = delete;
     Blocking_Queue& operator=(const Blocking_Queue&) = delete;
