@@ -6,5 +6,4 @@ add_library(libs STATIC
         Iterator/ReverseArrayIteratorDef.cpp
         SerDes/SerDesDef.cpp
         SerDes/SerDesUtilsDef.cpp
-        Thread/blocking_queue/blocking_queue.cpp
 )
