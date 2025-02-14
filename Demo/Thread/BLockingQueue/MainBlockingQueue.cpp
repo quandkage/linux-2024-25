@@ -1,15 +1,15 @@
-#include "BlockingQueue.h"
+#include <BlockingQueue.h>
 
 template <typename T>
-void consumer(BlockingQueue<T>& kuyeuye)
+void consumer(BlockingQueue<T>* kuyeuye)
 {
     int count = 0;
     while (count < 10) {
         int value;
-        if (kuyeuye.try_pop(value)) {
+        if (kuyeuye->try_pop(value)) {
             std::cout << "Consumed: " << value << std::endl;
             ++count;
-        } else if (kuyeuye.empty()) {
+        } else if (kuyeuye->empty()) {
             break;
         }
         else {
@@ -19,10 +19,10 @@ void consumer(BlockingQueue<T>& kuyeuye)
 }
 
 template <typename T>
-void producer(BlockingQueue<T>& kuyeuye)
+void producer(BlockingQueue<T>* kuyeuye)
 {
     for (int i = 0; i < 10; ++i) {
-        if (kuyeuye.try_push(i)) {
+        if (kuyeuye->try_push(i)) {
             std::cout << "Produced: " << i << std::endl;
         }
     }
@@ -30,7 +30,8 @@ void producer(BlockingQueue<T>& kuyeuye)
 
 int main() {
 
-    BlockingQueue<int> queue(5);
+    const std::size_t size = 5;
+    BlockingQueue<int>* queue = BlockingQueue<int>::create(size);
 
     std::thread producerThread([&] {
         producer(queue);

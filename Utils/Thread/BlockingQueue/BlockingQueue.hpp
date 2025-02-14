@@ -6,7 +6,7 @@ BlockingQueue<T>::BlockingQueue(const std::size_t maxSize)
     : m_maxSize(maxSize) {}
 
 template <typename T>
-BlockingQueue<T>::BlockingQueue(BlockingQueue&& other) noexcept
+BlockingQueue<T>::BlockingQueue(BlockingQueue&& other)
     : m_maxSize(other.m_maxSize)
 {
     std::lock_guard<std::mutex> lock(other.m_mtx);
@@ -14,7 +14,7 @@ BlockingQueue<T>::BlockingQueue(BlockingQueue&& other) noexcept
 }
 
 template <typename T>
-BlockingQueue<T>& BlockingQueue<T>::operator=(BlockingQueue&& other) noexcept
+BlockingQueue<T>& BlockingQueue<T>::operator=(BlockingQueue&& other)
 {
   if (this != &other){
       std::lock_guard<std::mutex> lockThis(m_mtx);
@@ -23,6 +23,11 @@ BlockingQueue<T>& BlockingQueue<T>::operator=(BlockingQueue&& other) noexcept
       m_buff = std::move(other.m_buff);
   }
   return *this;
+}
+
+template <typename T>
+BlockingQueue<T>* BlockingQueue<T>::create(std::size_t maxSize) {
+    return new BlockingQueue<T>(maxSize);
 }
 
 template <typename T>
@@ -65,11 +70,9 @@ bool BlockingQueue<T>::try_push(const T& obj)
 {
     std::unique_lock<std::mutex> lock(m_mtx);
     if (m_buff.size() >= m_maxSize) {
-      std::cout << "try_push faild \n";
       return false;
     }
     m_buff.push(obj);
-    std::cout << "try_push: " << obj << "\n";
 
     lock.unlock();
     m_cv.notify_one();
@@ -82,7 +85,6 @@ bool BlockingQueue<T>::try_push(T&& obj)
 {
     std::unique_lock<std::mutex> lock(m_mtx);
     if (m_buff.size() >= m_maxSize) {
-      std::cout << "try_push faild \n";
       return false;
     }
     m_buff.push(std::move(obj));
@@ -101,7 +103,6 @@ T BlockingQueue<T>::pop()
 
     T poped = m_buff.front();
     m_buff.pop();
-    std::cout << "pop: " << poped << "\n";
 
     lock.unlock();
     m_cv.notify_one();
@@ -114,13 +115,11 @@ bool BlockingQueue<T>::try_pop(T &obj)
 {
     std::unique_lock<std::mutex> lock(m_mtx);
     if (m_buff.empty()) {
-      std::cout << "try_pop failed \n";
       return false;
     }
 
     obj = std::move(m_buff.front());
     m_buff.pop();
-    std::cout << "try_pop: " << obj << "\n";
 
     lock.unlock();
     m_cv.notify_one();
