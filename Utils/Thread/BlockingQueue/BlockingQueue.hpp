@@ -30,16 +30,6 @@ BlockingQueue<T>* BlockingQueue<T>::create(std::size_t maxSize) {
     return new BlockingQueue<T>(maxSize);
 }
 
-template <typename T>
-BlockingQueue<T>::~BlockingQueue()
-{
-    std::lock_guard<std::mutex> lock(m_mtx);
-    while (!m_buff.empty()) {
-        m_buff.pop();
-    }
-
-    m_cv.notify_all();
-}
 
 template <typename T>
 void BlockingQueue<T>::push(const T &obj)

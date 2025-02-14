@@ -16,13 +16,13 @@ private:
     std::queue<T> m_buff;
     const std::size_t m_maxSize = 0;
 
-    ~BlockingQueue();
-
 public:
-    explicit BlockingQueue(std::size_t maxSize);
 
-    BlockingQueue(BlockingQueue&&) noexcept;
-    BlockingQueue& operator=(BlockingQueue&&) noexcept;
+    explicit BlockingQueue(std::size_t maxSize);
+    ~BlockingQueue() = delete;
+
+    BlockingQueue(BlockingQueue&&);
+    BlockingQueue& operator=(BlockingQueue&&);
 
     BlockingQueue(const BlockingQueue&) = delete;
     BlockingQueue& operator=(const BlockingQueue&) = delete;
