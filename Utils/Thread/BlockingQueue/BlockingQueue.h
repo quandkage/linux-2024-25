@@ -15,11 +15,9 @@ private:
     std::condition_variable m_cv;
     std::queue<T> m_buff;
     const std::size_t m_maxSize = 0;
-
-public:
-
     explicit BlockingQueue(std::size_t maxSize);
     ~BlockingQueue() = delete;
+public:
 
     BlockingQueue(BlockingQueue&&);
     BlockingQueue& operator=(BlockingQueue&&);

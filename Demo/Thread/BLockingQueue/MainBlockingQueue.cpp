@@ -30,7 +30,7 @@ void producer(BlockingQueue<T>* kuyeuye)
 
 int main() {
 
-    const std::size_t size = 5;
+    const std::size_t size = 24;
     BlockingQueue<int>* queue = BlockingQueue<int>::create(size);
 
     std::thread producerThread([&] {
